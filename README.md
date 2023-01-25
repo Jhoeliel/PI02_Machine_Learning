@@ -24,22 +24,6 @@ Para esto debe crear la columna `category_price`, en la cual se consideran las c
 ​
 2. Implementar un modelo de clasificación con aprendizaje no supervisado, utilizando clustering que agrupe las propiedades por segun las **3 categorias** a las que pueden pertenecer. Para ello, solo usaran el dataset de test provisto, eliminando previamente las caracteristicas que presenten nulos.
 ​
-## Métrica a utilizar
-​
-Como método de evaluación del desempeño, dependerá del modelo que usted decida implementar.
-​
-1. Para el modelo de aprendizaje supervisado, se utilizará la métrica `Accuracy` para las propiedades de precio bajo (low):
-​
-$$ Recall=\frac{TP+ TN}{TP+TN+FP+FN}$$
-​
-Donde $TP$ son los verdaderos positivos, $FP$ los falsos positivos, $FN$ los falsos negativos y $FN$ los falsos negativos. 
-​
-2. Para el modelo de aprendizaje no supervisado, se utilizará la métrica `Silhouette score`:
-​
-$$ Silhouette=\frac{b_i-a_i}{max(b_i,a_i)}$$
-​
-Dónde $b_i$ es la distancia promedio al grupo más cercano desde el punto i, $a_i$ es la distancia promedio a todos los demás puntos del clúster al que pertenece el punto i. 
-​
 ## Archivos provistos
 ​
 Se proveen los siguientes archivos en formato parquet:
@@ -80,4 +64,11 @@ Se proveen los siguientes archivos en formato parquet:
 - Si se presentan comentarios, es una buena oportunidad de aplicar procesamiento del lenguaje natural (NLP) para mejorar nuestro modelo.
 
 ## Resultados
-- Archivo EDA.ipynb el cual contiene el proceso de EDA-ETL que se realizo como parte de la feature engineerging.
+Para el modelo con aprendizaje supervisado se implementaron 4 modelos para poder comparar resultados. Se incluyen los siguientes archivos:
+- EDA.ipynb
+- KNeighbors.ipynb
+- NeuralNetwork.ipynb
+- RegLogistica.ipynb
+- SVM.ipynb
+
+Como se podrá apreciar en los archivos antes mencionados no existe una diferencia significativa entre los modelos aplicados. Es la calidad del EDA lo que determina la precision de la prediccion. El EDA publicado en este repositorio fue el segundo realizado y tuvo una diferencia de casi 0.2 puntos con respecto a la primera version.
